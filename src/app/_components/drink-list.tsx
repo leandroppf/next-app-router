@@ -1,12 +1,10 @@
 'use client'
 
-import { foodAtom } from "./food"
-import { useHydrateAtoms } from 'jotai/utils'
-import { useAtom } from "jotai"
+import { useDrinkPromise } from "../_context/drink-provider"
+import { use } from 'react'
 
-export default function FoodList({ foodPromise }: {foodPromise: Promise<string[]>}) {
-  useHydrateAtoms([[foodAtom, foodPromise]])
-  const [foods] = useAtom(foodAtom)
+export default function FoodList() {
+  const drinks = use(useDrinkPromise())
 
-  return <div>Drinks: {foods?.join(', ')}</div>
+  return <div>Drinks: {drinks?.join(', ')}</div>
 }
