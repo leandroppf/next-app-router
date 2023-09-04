@@ -1,16 +1,16 @@
 import Link from "next/link"
-import FoodList from "./_components/food-list"
+import DrinkList from "../_components/drink-list"
 
 export default function Home() {
-  const foodPromise = fetch("http://localhost:3000/api/foods", {
+  const foodPromise = fetch("http://localhost:3000/api/drinks", {
     cache: 'no-cache'
   }).then(res => res.json())
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <FoodList foodPromise={foodPromise} />
+      <DrinkList foodPromise={foodPromise} />
 
-      <Link href={'/context-page'}>Drinks</Link>
+      <Link href={'/'}>Foods</Link>
     </main>
   )
 }
