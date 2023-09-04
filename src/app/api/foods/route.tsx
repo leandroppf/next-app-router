@@ -14,7 +14,7 @@ const FOODS = [
 ]
 
 export async function GET() {
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  await new Promise((resolve) => setTimeout(resolve, 5000))
 
   return NextResponse.json(FOODS)
 }
